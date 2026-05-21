@@ -1,0 +1,7 @@
+# Compiled C binaries
+OBST
+OBST.exe
+*.o
+
+# Compiled Java class files
+*.class
