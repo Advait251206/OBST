@@ -67,7 +67,7 @@ Let $e[i, j]$ be the expected cost of searching an optimal BST containing keys $
   $$e[i, i-1] = q_{i-1}$$
 - **Recursive Step:**
   For $1 \le i \le j \le n$, we choose a root $k_r$ (where $i \le r \le j$) that minimizes the sum of the expected search costs of the subtrees plus the sum of all probabilities in the subproblem.
-  $$e[i, j] = \min_{i \le r \le j} \Big\{ e[i, r-1] + e[r+1, j] \Big\} + w(i, j)$$
+  $$e[i, j] = \min_{i \le r \le j} \left\{ e[i, r-1] + e[r+1, j] \right\} + w(i, j)$$
   
   Where $w(i, j)$ is the sum of probabilities of keys and dummy keys in the subproblem:
   $$w(i, j) = \sum_{l=i}^{j} p_l + \sum_{l=i-1}^{j} q_l$$
@@ -93,7 +93,7 @@ The practical is divided into two distinct implementation tasks matching differe
 * **Scenario:** A standard competitive programming problem where a sorted array of search keys and their corresponding frequency counts (number of searches) are given. There are no unsuccessful search dummy keys. The level of a node is defined as its depth plus one (Root level is 1). The target is to arrange keys into a BST to minimize the total search cost:
   $$\text{Total Cost} = \sum_{i=1}^{n} (\text{Level of } k_i) \times \text{Frequency}(k_i)$$
 * **Dynamic Programming Formula:**
-  $$dp[i][j] = \min_{i \le r \le j} \Big\{ dp[i][r-1] + dp[r+1][j] \Big\} + \sum_{l=i}^{j} \text{freq}[l]$$
+  $$dp[i][j] = \min_{i \le r \le j} \left\{ dp[i][r-1] + dp[r+1][j] \right\} + \sum_{l=i}^{j} \text{freq}[l]$$
 * **Optimization:** Frequency sums are computed in $O(1)$ time using a **Prefix Sum Array** to optimize the lookup step.
 
 ---
